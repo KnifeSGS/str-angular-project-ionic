@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  title: string = 'Profile';
+
+  constructor() { }
 
 }

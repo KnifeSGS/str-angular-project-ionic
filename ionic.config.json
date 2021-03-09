@@ -1,0 +1,7 @@
+{
+  "name": "str-angular-project-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

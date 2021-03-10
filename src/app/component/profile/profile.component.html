@@ -1,3 +1,38 @@
-<p>
-  profile works!
-</p>
+<form action=""></form>
+<ion-item>
+  <ion-label position="floating">Name</ion-label>
+  <ion-input inputmode="text" minlength="5"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Gender</ion-label>
+  <ion-input inputmode="text" minlength="4" maxlength="6"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Age</ion-label>
+  <ion-input type="number"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Address</ion-label>
+  <ion-input inputmode="text" placeholder="Zip Code"></ion-input>
+  <ion-input inputmode="text" placeholder="City"></ion-input>
+  <ion-input inputmode="text" placeholder="Address"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Interests</ion-label>
+  <ion-textarea></ion-textarea>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea></ion-textarea>
+</ion-item>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

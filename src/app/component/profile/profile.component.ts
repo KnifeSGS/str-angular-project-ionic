@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoService } from 'src/app/service/photo.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public photoService: PhotoService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
+  }
 }

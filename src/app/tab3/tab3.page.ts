@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -9,6 +10,6 @@ export class Tab3Page {
 
   title: string = 'Profile';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 }

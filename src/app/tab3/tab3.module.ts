@@ -2,6 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
@@ -19,6 +20,7 @@ import { ProfileComponent } from '../component/profile/profile.component';
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     RouterModule.forChild([{ path: 'edit', component: ProfileComponent }]),
     Tab3PageRoutingModule,
+    HttpClientModule,
   ],
   declarations: [
     Tab3Page,

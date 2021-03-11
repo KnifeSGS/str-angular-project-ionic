@@ -3,26 +3,28 @@
   <ion-card-header color="primary"
     class="d-flex justify-content-center flex-column">
     <ion-card-title class="align-self-center">
-      User Name
+      {{ user.name }}
     </ion-card-title>
-    <ion-card-subtitle class="align-self-center">
-      Loves to jumping on trees
-    </ion-card-subtitle>
+    <div class="interest d-flex flex-row justify-content-around">
+      <ion-card-subtitle class="" *ngFor="let interest of user.interests">
+        {{ interest.name }}
+      </ion-card-subtitle>
+    </div>
   </ion-card-header>
 
   <ion-card-content class="mt-2">
     <p>
-      Gender: Male
+      Gender: {{ user.gender }}
     </p>
     <p>
-      Age: 3years
+      Age: {{ user.age }} years
     </p>
     <p>
-      Location: Zoo
+      Location: {{ user.location.zip }} {{ user.location.city }}, {{
+      user.location.address }}
     </p>
     <p>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      {{ user.description }}
     </p>
   </ion-card-content>
 </ion-card>

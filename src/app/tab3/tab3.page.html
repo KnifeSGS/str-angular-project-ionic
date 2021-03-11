@@ -14,9 +14,10 @@
   </ion-header> -->
 
 
-  <app-profile-card></app-profile-card>
+  <app-profile-card [user]="user"></app-profile-card>
 
-  <ion-button [routerLink]="'edit'" fill="outline" expand="block" class="mx-5">
+  <ion-button [routerLink]="['edit/' + user.id]" fill="outline" expand="block"
+    class="mx-5">
     Edit profile
   </ion-button>
 </ion-content>

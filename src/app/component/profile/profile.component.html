@@ -1,38 +1,63 @@
-<form action=""></form>
-<ion-item>
-  <ion-label position="floating">Name</ion-label>
-  <ion-input inputmode="text" minlength="5"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label position="floating">Gender</ion-label>
-  <ion-input inputmode="text" minlength="4" maxlength="6"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label position="floating">Age</ion-label>
-  <ion-input type="number"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="floating">Address</ion-label>
-  <ion-input inputmode="text" placeholder="Zip Code"></ion-input>
-  <ion-input inputmode="text" placeholder="City"></ion-input>
-  <ion-input inputmode="text" placeholder="Address"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="floating">Interests</ion-label>
-  <ion-textarea></ion-textarea>
-</ion-item>
-
-<ion-item>
-  <ion-label position="floating">Description</ion-label>
-  <ion-textarea></ion-textarea>
-</ion-item>
-
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input inputmode="text" minlength="5" name="name"
+        [(ngModel)]="user.name">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Gender</ion-label>
+      <ion-input inputmode="text" minlength="4" maxlength="6" name="gender"
+        [(ngModel)]="user.gender">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Age</ion-label>
+      <ion-input type="number" name="age" [(ngModel)]="user.age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input inputmode="text" placeholder="Zip Code" name="zip"
+        [(ngModel)]="user.location.zip"></ion-input>
+      <ion-input inputmode="text" placeholder="City" name="city"
+        [(ngModel)]="user.location.city">
+      </ion-input>
+      <ion-input inputmode="text" placeholder="Address" name="address"
+        [(ngModel)]="user.location.address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Interests</ion-label>
+      <div class="list" *ngFor="let interest of user.interests">
+        <ion-input name="interestName" [(ngModel)]="interest.name"></ion-input>
+        <!-- <ion-input class="pl-2" name="interestDescription"
+          [(ngModel)]="interest.description">
+        </ion-input> -->
+      </div>
+    </ion-item>
+
+    <button type="submit" class="btn btn-outline-primary">OK</button>
+
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea name="description" [(ngModel)]="user.description">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-fab horizontal="start" class="py-3">
+      <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab horizontal="end" class="py-3">
+      <ion-fab-button [disabled]="!userForm.form.valid" type="submit"
+        color="success">
+        <ion-icon name="save-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
 </ion-content>

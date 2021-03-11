@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-profile-card',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCardComponent implements OnInit {
 
+  @Input() user = new User();
+
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.user);
+  }
 
 }

@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from 'src/app/model/user';
 import { PhotoService } from 'src/app/service/photo.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,11 +13,29 @@ import { PhotoService } from 'src/app/service/photo.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public photoService: PhotoService) { }
+  // @Input() user$: Observable<User> = this.userService.getOne(1);
+  user$: BehaviorSubject<User[]> = this.userService.userData$;
+  user: User = new User();
 
-  ngOnInit() { }
+  constructor(
+    public photoService: PhotoService,
+    private userService: UserService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.user$.subscribe((userArray) => {
+      userArray.filter(item => this.user = item)
+    })
+    // this.user$.subscribe((user) => this.user = user)
+  }
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
+
+  onSubmit(): void {
+    this.userService.update(this.user).subscribe(() => this.router.navigate(['/tabs/tab3']));
+  }
+
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: Tab3Page,
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: ProfileComponent,
   }
 ];

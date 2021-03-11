@@ -5,9 +5,9 @@ export class User {
   id: number;
   name: string;
   gender: string;
-  age: string;
+  age: number;
   photo: string;
   description: string;
   location: Location = new Location();
-  interests: Interest = new Interest();
+  interests: Interest[] = [new Interest()];
 }

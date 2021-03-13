@@ -18,7 +18,7 @@ import { ProfileComponent } from '../component/profile/profile.component';
     FormsModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
-    RouterModule.forChild([{ path: 'edit', component: ProfileComponent }]),
+    RouterModule.forChild([{ path: ':id', component: ProfileComponent }]),
     Tab3PageRoutingModule,
     HttpClientModule,
   ],

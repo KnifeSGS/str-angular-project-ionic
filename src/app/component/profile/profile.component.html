@@ -31,15 +31,15 @@
 
     <ion-item>
       <ion-label position="floating">Interests</ion-label>
-      <div class="list" *ngFor="let interest of user.interests">
-        <ion-input name="interestName" [(ngModel)]="interest.name"></ion-input>
-        <!-- <ion-input class="pl-2" name="interestDescription"
+      <div class="list"
+        *ngFor="let interest of user.interests;let index = index">
+        <ion-input [name]="'intname' + index" [(ngModel)]="interest.name">
+        </ion-input>
+        <ion-input class="pl-2" [name]="'intdesc'+ index"
           [(ngModel)]="interest.description">
-        </ion-input> -->
+        </ion-input>
       </div>
     </ion-item>
-
-    <button type="submit" class="btn btn-outline-primary">OK</button>
 
     <ion-item>
       <ion-label position="floating">Description</ion-label>
@@ -47,16 +47,22 @@
       </ion-textarea>
     </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">Photo</ion-label>
+      <ion-input inputmode="text" name="photo" [(ngModel)]="user.photo">
+      </ion-input>
+    </ion-item>
+
     <ion-fab horizontal="start" class="py-3">
-      <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-button (click)="addPhotoToGallery()">
         <ion-icon name="camera"></ion-icon>
-      </ion-fab-button>
+      </ion-button>
     </ion-fab>
     <ion-fab horizontal="end" class="py-3">
-      <ion-fab-button [disabled]="!userForm.form.valid" type="submit"
+      <ion-button [disabled]="!userForm.form.valid" type="submit"
         color="success">
         <ion-icon name="save-outline"></ion-icon>
-      </ion-fab-button>
+      </ion-button>
     </ion-fab>
 
   </form>

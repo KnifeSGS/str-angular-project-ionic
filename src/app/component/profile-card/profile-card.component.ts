@@ -13,7 +13,6 @@ export class ProfileCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.user);
   }
 
 }

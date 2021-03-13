@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      {{title}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
+  <!-- 
+  <app-explore-container name="Tab 1 page"></app-explore-container> -->
+  <div class="profiles" *ngFor="let user of users$ | async">
+    <app-profile-card [user]="user">
+    </app-profile-card>
+    <ion-button fill="outline" expand="" class="mx-5">
+      like
+    </ion-button>
+    <ion-button fill="outline" expand="" class="mx-5">
+      DISlike
+    </ion-button>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  </div>
+
 </ion-content>

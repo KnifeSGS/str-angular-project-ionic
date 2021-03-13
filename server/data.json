@@ -2,9 +2,35 @@
   "user": [
     {
       "id": 1,
-      "name": "Makika",
+      "name": "Makiaa",
       "gender": "male",
       "age": 3,
+      "photo": "./assets/img/pp.png",
+      "description": "Keep close to Nature's heart...",
+      "location": {
+        "id": 1,
+        "zip": 8200,
+        "city": "Veszprem",
+        "address": "Zoo"
+      },
+      "interests": [
+        {
+          "id": 1,
+          "name": "Jump",
+          "description": "Loves to jumping on trees"
+        },
+        {
+          "id": 2,
+          "name": "Sleeping",
+          "description": "Sleeping on sunny days"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Móric",
+      "gender": "male",
+      "age": 6,
       "photo": "./assets/img/pp.png",
       "description": "Keep close to Nature's heart...",
       "location": {

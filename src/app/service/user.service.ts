@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from '../model/user';
 import { tap } from 'rxjs/operators';
 
@@ -27,8 +27,9 @@ export class UserService {
     return this.http.get<User[]>(this.userDataUrl)
   }
 
-  getOne(id: string | number): Observable<User> {
-    return this.http.get<User>(`${this.userDataUrl}/${id}`)
+  getOne(id: number): Observable<User> {
+    return Number(id) === 0 ? of(new User()) : this.http.get<User>(`${this.userDataUrl}/${Number(id)}`);
+    // return this.http.get<User>(`${this.userDataUrl}/${id}`)
   }
 
   update(user: User): Observable<User | undefined> {

@@ -22,14 +22,16 @@ export class Tab3Page implements OnInit {
 
   ngOnInit() {
     this.userService.getAll()
-    this.chooseUser()
+    this.chooseUser(1)
   }
 
-  chooseUser(): void {
+  chooseUser(index: Number): void {
     this.user$.subscribe((userArray) => {
       userArray.filter(item => {
-        this.user = item;
-        this.getData(item)
+        if (item.id === index) {
+          this.user = item;
+        }
+        // this.getData(item)
       });
     })
   }

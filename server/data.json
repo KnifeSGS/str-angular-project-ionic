@@ -7,12 +7,17 @@
       "age": 3,
       "photo": "./assets/img/pp.png",
       "description": "Keep close to Nature's heart...",
+      "locationID": 1,
       "location": {
         "id": 1,
         "zip": 8200,
         "city": "Veszprem",
         "address": "Zoo"
       },
+      "interestsID": [
+        1,
+        2
+      ],
       "interests": [
         {
           "id": 1,
@@ -24,7 +29,8 @@
           "name": "Sleeping",
           "description": "Sleeping on sunny days"
         }
-      ]
+      ],
+      "like": false
     },
     {
       "id": 2,
@@ -33,12 +39,17 @@
       "age": 6,
       "photo": "./assets/img/pp.png",
       "description": "Keep close to Nature's heart...",
+      "locationID": 2,
       "location": {
         "id": 1,
         "zip": 8200,
         "city": "Veszprem",
         "address": "Zoo"
       },
+      "interestsID": [
+        1,
+        2
+      ],
       "interests": [
         {
           "id": 1,
@@ -50,7 +61,8 @@
           "name": "Sleeping",
           "description": "Sleeping on sunny days"
         }
-      ]
+      ],
+      "like": true
     }
   ],
   "interest": [
@@ -71,6 +83,38 @@
       "zip": 8200,
       "city": "Veszprem",
       "address": "Zoo"
+    },
+    {
+      "id": 2,
+      "zip": 1200,
+      "city": "Budapest",
+      "address": "Zoo"
+    }
+  ],
+  "connections": [
+    {
+      "id": 1,
+      "user1": 31,
+      "user2": 6,
+      "accepted": true
+    },
+    {
+      "id": 2,
+      "user1": 31,
+      "user2": 12,
+      "accepted": false
+    },
+    {
+      "id": 3,
+      "user1": 31,
+      "user2": 20,
+      "accepted": false
+    },
+    {
+      "id": 4,
+      "user1": 31,
+      "user2": 16,
+      "accepted": false
     }
   ]
 }

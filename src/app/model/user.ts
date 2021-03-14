@@ -8,6 +8,9 @@ export class User {
   age: number;
   photo: string;
   description: string;
+  locationID: number;
   location: Location = new Location();
+  interestsID: number;
   interests: Interest[] = [new Interest()];
+  like: boolean;
 }

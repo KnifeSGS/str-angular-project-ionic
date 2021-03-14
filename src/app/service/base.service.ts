@@ -52,4 +52,9 @@ export class BaseService<T extends { id: number }> {
     const query = `${this.config.apiUrl}/${this.entityName}?${key}=${value}`;
     return this.http.get<T[]>(query);
   }
+
+  searchAll(value: string): Observable<T[]> {
+    const query = `${this.config.apiUrl}/${this.entityName}?q=${value}`;
+    return this.http.get<T[]>(query);
+  }
 }

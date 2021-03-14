@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from '../model/user';
 import { tap } from 'rxjs/operators';
+import { LocationService } from './location.service';
+import { InterestService } from './interest.service';
+import { BaseService } from '../service/base.service';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService extends BaseService<User> {
 
   userDataUrl: string = 'http://localhost:3000/user';
 
@@ -15,8 +19,13 @@ export class UserService {
   userData2$: Observable<User[]> = new Observable<User[]>();
 
   constructor(
-    private http: HttpClient,
-  ) { }
+    public http: HttpClient,
+    public location: LocationService,
+    public interest: InterestService,
+    public config: ConfigService
+  ) {
+    super(http, config, 'users')
+  }
 
   getAll(): void {
     this.http.get<User[]>(this.userDataUrl)
@@ -38,4 +47,5 @@ export class UserService {
         tap(() => this.getAll())
       )
   }
+
 }

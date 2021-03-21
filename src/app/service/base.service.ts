@@ -25,10 +25,10 @@ export class BaseService<T extends { id: number }> {
       .subscribe(
         list => this.list$.next(list),
         err => console.error(err)
-      )
+      );
   }
 
-  get(id: number): Observable<T> {
+  getOne(id: number): Observable<T> {
     return this.http.get<T>(`${this.config.apiUrl}/${this.entityName}/${id}`);
   }
 

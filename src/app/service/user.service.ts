@@ -13,10 +13,10 @@ import { ConfigService } from './config.service';
 })
 export class UserService extends BaseService<User> {
 
-  userDataUrl: string = 'http://localhost:3000/user';
+  // userDataUrl: string = 'http://localhost:3000/user';
 
-  userData$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
-  userData2$: Observable<User[]> = new Observable<User[]>();
+  // userData$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  // userData2$: Observable<User[]> = new Observable<User[]>();
 
   constructor(
     public http: HttpClient,
@@ -27,25 +27,25 @@ export class UserService extends BaseService<User> {
     super(http, config, 'users')
   }
 
-  getAll(): void {
-    this.http.get<User[]>(this.userDataUrl)
-      .subscribe(users => this.userData$.next(users))
-  }
+  // getAll(): void {
+  //   this.http.get<User[]>(this.userDataUrl)
+  //     .subscribe(users => this.userData$.next(users))
+  // }
 
-  getAllOld(): Observable<User[]> {
-    return this.http.get<User[]>(this.userDataUrl)
-  }
+  // getAllOld(): Observable<User[]> {
+  //   return this.http.get<User[]>(this.userDataUrl)
+  // }
 
-  getOne(id: number): Observable<User> {
-    return Number(id) === 0 ? of(new User()) : this.http.get<User>(`${this.userDataUrl}/${Number(id)}`);
-    // return this.http.get<User>(`${this.userDataUrl}/${id}`)
-  }
+  // getOne(id: number): Observable<User> {
+  //   return Number(id) === 0 ? of(new User()) : this.http.get<User>(`${this.userDataUrl}/${Number(id)}`);
+  //   // return this.http.get<User>(`${this.userDataUrl}/${id}`)
+  // }
 
-  update(user: User): Observable<User | undefined> {
-    return this.http.patch<User>(`${this.userDataUrl}/${user.id}`, user)
-      .pipe(
-        tap(() => this.getAll())
-      )
-  }
+  // update(user: User): Observable<User | undefined> {
+  //   return this.http.patch<User>(`${this.userDataUrl}/${user.id}`, user)
+  //     .pipe(
+  //       tap(() => this.getAll())
+  //     )
+  // }
 
 }

@@ -11,7 +11,7 @@ import { UserService } from '../service/user.service';
 export class Tab1Page implements OnInit {
   title: string = 'Home';
 
-  users$: BehaviorSubject<User[]> = this.userService.userData$;
+  users$: BehaviorSubject<User[]> = this.userService.list$;
 
   constructor(
     private userService: UserService,

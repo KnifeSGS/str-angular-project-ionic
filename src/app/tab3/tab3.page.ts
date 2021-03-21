@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Interest } from '../model/interest';
 import { User } from '../model/user';
+import { BaseService } from '../service/base.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -13,10 +15,13 @@ export class Tab3Page implements OnInit {
   title: string = 'Profile';
 
   user: User = new User();
-  user$: BehaviorSubject<User[]> = this.userService.userData$;
+  user$: BehaviorSubject<User[]> = this.userService.list$;
+  // interest$: BehaviorSubject<Interest[]> = this.baseService.list$;
+
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    // private baseService: BaseService<Interest>,
   ) {
   }
 

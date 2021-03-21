@@ -1,8 +1,8 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
-      "name": "Makiaa",
+      "name": "Makika",
       "gender": "male",
       "age": 3,
       "photo": "./assets/img/pp.png",
@@ -19,16 +19,8 @@
         2
       ],
       "interests": [
-        {
-          "id": 1,
-          "name": "Jump",
-          "description": "Loves to jumping on trees"
-        },
-        {
-          "id": 2,
-          "name": "Sleeping",
-          "description": "Sleeping on sunny days"
-        }
+        "Jumping ",
+        "Playing "
       ],
       "like": false
     },
@@ -75,6 +67,16 @@
       "id": 2,
       "name": "Sleeping",
       "description": "Sleeping on sunny days"
+    },
+    {
+      "id": 3,
+      "name": "Playing",
+      "description": "Playing all day long"
+    },
+    {
+      "id": 4,
+      "name": "Eating",
+      "description": "Eat with friends"
     }
   ],
   "location": [

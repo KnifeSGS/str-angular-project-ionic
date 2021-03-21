@@ -10,7 +10,7 @@ export class User {
   description: string;
   locationID: number;
   location: Location = new Location();
-  interestsID: number;
+  interestsID: number[];
   interests: Interest[] = [new Interest()];
   like: boolean;
 }

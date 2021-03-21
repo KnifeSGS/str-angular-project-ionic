@@ -3,6 +3,7 @@
     <ion-title>
       {{title}}
     </ion-title>
+    <ion-searchbar debounce="500" animated></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -14,13 +15,15 @@
   </ion-header> -->
   <!-- 
   <app-explore-container name="Tab 1 page"></app-explore-container> -->
+
+
   <div class="profiles" *ngFor="let user of users$ | async">
     <app-profile-card [user]="user">
     </app-profile-card>
-    <ion-button fill="outline" expand="" class="mx-5">
+    <ion-button fill="outline" expand="" class="mx-5 d-flex justify-self-start">
       like
     </ion-button>
-    <ion-button fill="outline" expand="" class="mx-5">
+    <ion-button fill="outline" expand="" class="mx-5 d-flex justify-self-end">
       DISlike
     </ion-button>
 

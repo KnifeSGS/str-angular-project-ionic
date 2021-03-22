@@ -16,11 +16,25 @@
       },
       "interestsID": [
         1,
-        2
+        2,
+        4
       ],
       "interests": [
-        "Jumping ",
-        "Playing "
+        {
+          "id": 1,
+          "name": "Jumping",
+          "description": "Loves to jumping on trees"
+        },
+        {
+          "id": 2,
+          "name": "Sleeping",
+          "description": "Sleeping on sunny days"
+        },
+        {
+          "id": 4,
+          "name": "Eating",
+          "description": "Eat with friends"
+        }
       ],
       "like": false
     },

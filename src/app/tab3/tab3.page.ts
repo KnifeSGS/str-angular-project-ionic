@@ -16,18 +16,16 @@ export class Tab3Page implements OnInit {
 
   user: User = new User();
   user$: BehaviorSubject<User[]> = this.userService.list$;
-  // interest$: BehaviorSubject<Interest[]> = this.baseService.list$;
 
 
   constructor(
     private userService: UserService,
-    // private baseService: BaseService<Interest>,
   ) {
   }
 
   ngOnInit() {
-    this.userService.getAll()
-    this.chooseUser(1)
+    this.userService.getAll(),
+      this.chooseUser(1)
   }
 
   chooseUser(index: Number): void {
@@ -41,7 +39,7 @@ export class Tab3Page implements OnInit {
     })
   }
 
-  getData(item) {
-    this.user = item
-  }
+  // getData(item) {
+  //   this.user = item
+  // }
 }

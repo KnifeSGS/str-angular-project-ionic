@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   user: User = new User();
   interests$: Observable<Interest[]> = this.interestService.list$
   interests: Interest[];
+  userInterests: Interest[] = [];
 
   constructor(
     public photoService: PhotoService,
@@ -30,17 +31,17 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
   ) {
-    this.interestService.getAll()
+    this.interestService.getAll();
   }
 
   ngOnInit() {
+    this.userService.getAll()
     this.activatedRoute.params.subscribe(
       params =>
         this.userService.getOne(params.id).subscribe(
           user => {
             this.user = user || new User();
-            console.log(user);
-            console.log(user.interestsID);
+            this.getInterest();
           }
         )
     );
@@ -48,6 +49,21 @@ export class ProfileComponent implements OnInit {
     this.interests$.subscribe(
       (item) => this.interests = item
     )
+
+  }
+
+  inter: Interest
+  getInterest(): void {
+    for (const ints of this.user.interestsID) {
+      this.interestService.getOne(ints).subscribe(
+        interest => {
+          this.inter = interest || new Interest();
+          this.userInterests.push(this.inter)
+        }
+      );
+    }
+    this.user.interests = this.userInterests;
+    [...new Set(this.userInterests)];
   }
 
   addPhotoToGallery() {

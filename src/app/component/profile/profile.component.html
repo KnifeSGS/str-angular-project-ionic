@@ -31,21 +31,23 @@
 
     <ion-item>
       <ion-label position="floating">Interests</ion-label>
-      <!-- <div class="list"
-        *ngFor="let interest of user.interests;let index = index">
+      <div class="list"
+        *ngFor="let interest of userInterests;let index = index">
         <ion-input [name]="'intname' + index" [(ngModel)]="interest.name">
         </ion-input>
         <ion-input class="pl-2" [name]="'intdesc'+ index"
           [(ngModel)]="interest.description">
         </ion-input>
-      </div> -->
-      <ion-select name="interest" [(ngModel)]="user.interests" multiple>
+      </div>
+      <!-- <ion-select name="interests" [(ngModel)]="userInterests" multiple>
         <ion-select-option
-          *ngFor="let interest of interests;let j = index; trackBy:itemIdentity">
-          <input [name]="'iname'+j" type="checkbox" class="form-check-input"
-            [(ngModel)]="interest.name">{{interest.name}}
+          *ngFor="let interest of userInterests;let j = index; trackBy:itemIdentity">
+          <input name="'iname'+j" type="checkbox" class="form-check-input"
+            [(ngModel)]="interest.name">{{interest.name}} -
+          <p name="'idesc'+j">{{interest.description}}</p>
         </ion-select-option>
-      </ion-select>
+      </ion-select> -->
+
       <!-- <div class="form-group"
         *ngFor="let intID of user.interestsID;let k = index; trackBy:itemIdentity"> -->
       <!-- <ion-textarea name="item-{{k}}" [(ngModel)]="user.interestsID[k]"> -->
